@@ -48,7 +48,7 @@ class Application:
         print("Usage:")
         print("------")
         print()
-        print("    python pyMandelbrot.py <intImgSize> <strOutputFilename>")
+        print("    python mandelbrot.py <intImgSize> <strOutputFilename>")
         print()
         print("    Generates the Mandelbrot-set and saves it as a PNG file.")
         print("    Image size: intImgSize * intImgSize")
@@ -57,7 +57,7 @@ class Application:
         print("Example:")
         print("--------")
         print()
-        print("    python pyMandelbrot 600 output.png")
+        print("    python mandelbrot.py 600 output.png")
         print()
 
     def __getParametersIfValid(self):
@@ -84,5 +84,5 @@ class Application:
         """
         Main function to generate Mandelbrot-set.
         """
-        generator = MandelbrotGenerator(intImageWidth, strOutputFileName)
+        generator = MandelbrotGenerator(intImageWidth, 2, strOutputFileName)
         generator.generateOutput()
