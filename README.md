@@ -5,7 +5,7 @@ Generates the Mandelbrot-set and saves it as an image file in the format dictate
 
 **Minimum image size:** 100.
 
-*Simple mandelbrot generator code in Python. Used to learn python.)*
+*(Simple mandelbrot generator code in Python. Used to learn python.)*
 
 ## Usage
 ```
