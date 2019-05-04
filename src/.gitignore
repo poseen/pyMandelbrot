@@ -475,4 +475,3 @@ dmypy.json
 *.jpg
 *.tif
 *.tiff
-!example.png
