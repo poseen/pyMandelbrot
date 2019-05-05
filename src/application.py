@@ -4,12 +4,12 @@
 This is application's main class
 """
 
-from mandelbrotGenerator import MandelbrotGenerator
+from lovebrotGenerator import LovebrotGenerator
 
 class Application:
 
     # -- Constants ---------------------------------------------------------------
-    STR_APP_NAME      = "pyMandelbrot"
+    STR_APP_NAME      = "pyLovebrot"
     STR_APP_VERSION   = "v1.0"
     INT_MIN_IMAGE_SIZE = 100
 
@@ -84,5 +84,5 @@ class Application:
         """
         Main function to generate Mandelbrot-set.
         """
-        generator = MandelbrotGenerator(intImageWidth, 2, strOutputFileName)
+        generator = LovebrotGenerator(intImageWidth, 2, strOutputFileName)
         generator.generateOutput()

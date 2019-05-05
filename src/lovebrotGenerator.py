@@ -8,9 +8,9 @@ import sys
 from PIL import Image, ImageDraw
 
 """
-The Mandelbrot-generator class
+The Lovebrot-generator class
 """
-class MandelbrotGenerator:
+class LovebrotGenerator:
 
     # -- Constructor -------------------------------------------------------------
     def __init__(self, intImageWidth, intRadius, strOutputFileName):
@@ -26,11 +26,11 @@ class MandelbrotGenerator:
         Main function to generate Mandelbrot-set and save it to file.
         """
 
-        print("Generating Mandelbrot fractal with resolution of  "
+        print("Generating Lovebrot fractal with resolution of  "
               + str(self.__intImageWidth) + " * " + str(self.__intImageHeight)
               + " and save it to " + self.__strOutputFileName + " file.")
         
-        MandelbrotGenerator.__startProgress("Drawing")
+        LovebrotGenerator.__startProgress("Drawing")
         start = time.time()
         
         img = Image.new('HSV', (self.__intImageWidth, self.__intImageHeight))
@@ -56,16 +56,16 @@ class MandelbrotGenerator:
                 value = 255 if iteration < self.__maxIteration else 0
 
                 d.point([i, j], (hue, saturation, value))
-            if i % 100 == 0:
+            if i % 10 == 0:
                 partTime = time.time()
-                MandelbrotGenerator.__progress(decimal.Decimal(i) / self.__intImageWidth * 100)
+                LovebrotGenerator.__progress(decimal.Decimal(i) / self.__intImageWidth * 100)
 
         del d
         img.convert('RGB').save(self.__strOutputFileName)
 
         end = time.time()
         
-        MandelbrotGenerator.__endProgress()
+        LovebrotGenerator.__endProgress()
         print("DONE in %f seconds." % (end - start))
 
         # Just for debugging, works only in Windows, can be safely removed or commented:
@@ -114,13 +114,13 @@ class MandelbrotGenerator:
         return z*z + c
             
     def __simpleLovebrotFunction(z:complex, c:complex):
-        imag = c.imag * MandelbrotGenerator.__f(c.real)
+        imag = c.imag * LovebrotGenerator.__f(c.real)
         newC = complex(c.real, imag)
-        return MandelbrotGenerator.__mandelbrotFunction(z, newC)
+        return LovebrotGenerator.__mandelbrotFunction(z, newC)
 
     def __f(real):
         if real > -0.14:
-            return MandelbrotGenerator.__f(-0.14);
+            return LovebrotGenerator.__f(-0.14);
 
         result = 1 / float(real + 1)
 
@@ -137,9 +137,9 @@ class MandelbrotGenerator:
         z = complex(0, 0)
         while self.__getComplexDistance(z) <= 2 and iteration < maxIteration:
             # Classic Mandelbrot:
-            #z = MandelbrotGenerator.__mandelbrotFunction(z, c)
+            #z = LovebrotGenerator.__mandelbrotFunction(z, c)
             # LoveBrot:
-            z = MandelbrotGenerator.__simpleLovebrotFunction(z, c)
+            z = LovebrotGenerator.__simpleLovebrotFunction(z, c)
             iteration = iteration + 1
         return iteration
 

@@ -4,13 +4,13 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c7cfb6fb-94ef-4fb7-8361-bbf5661e91cf</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>mandelbrot.py</StartupFile>
+    <StartupFile>lovebrot.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>pyMandelbrot</Name>
-    <RootNamespace>pyMandelbrot</RootNamespace>
+    <Name>pyLovebrot</Name>
+    <RootNamespace>pyLovebrot</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <CommandLineArguments>1600 example.png</CommandLineArguments>
@@ -28,10 +28,10 @@
     <Compile Include="application.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="mandelbrotGenerator.py">
+    <Compile Include="lovebrotGenerator.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="mandelbrot.py" />
+    <Compile Include="lovebrot.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
