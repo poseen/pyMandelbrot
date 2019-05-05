@@ -57,7 +57,6 @@ class LovebrotGenerator:
 
                 d.point([i, j], (hue, saturation, value))
             if i % 10 == 0:
-                partTime = time.time()
                 LovebrotGenerator.__progress(decimal.Decimal(i) / self.__intImageWidth * 100)
 
         del d
