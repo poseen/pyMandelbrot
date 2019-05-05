@@ -12,7 +12,10 @@ Generates the Mandelbrot-set and saves it as an image file in the format dictate
 python mandelbrot.py <intImgSize> <strOutputFilename>
 ```
 
-### Example:
+### Example
 ```
 python mandelbrot.py 600 output.png
 ```
+
+## Note
+Check other branches for other Mandelbrot-based fractals.
