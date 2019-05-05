@@ -18,7 +18,7 @@ class MandelbrotGenerator:
         self.__intImageHeight = intImageWidth
         self.__strOutputFileName = strOutputFileName
         self.__intRadius = intRadius
-        self.__maxIteration = 40
+        self.__maxIteration = 20
 
     # -- Public functions and methods --------------------------------------------
     def generateOutput(self):
@@ -110,26 +110,36 @@ class MandelbrotGenerator:
         """
         return math.sqrt((z.real*z.real + z.imag*z.imag))
 
-    def __getStepsInMandelbrotSet(self, z:complex, maxIteration: int):
+    def __mandelbrotFunction(z:complex, c:complex):
+        return z*z + c
+            
+    def __simpleLovebrotFunction(z:complex, c:complex):
+        imag = c.imag * MandelbrotGenerator.__f(c.real)
+        newC = complex(c.real, imag)
+        return MandelbrotGenerator.__mandelbrotFunction(z, newC)
+
+    def __f(real):
+        if real > -0.14:
+            return MandelbrotGenerator.__f(-0.14);
+
+        result = 1 / float(real + 1)
+
+        if math.isinf(result):
+            return 1
+
+        return result
+
+    def __getStepsInMandelbrotSet(self, c:complex, maxIteration: int):
         """
         Returns the maximum steps for the given z complex number while it was still part of the set.
         """
         iteration = 0
-        x = complex(0, 0)
-        while self.__getComplexDistance(x) <= 2 and iteration < maxIteration:
+        z = complex(0, 0)
+        while self.__getComplexDistance(z) <= 2 and iteration < maxIteration:
             # Classic Mandelbrot:
-            x = x*x + z
-
-            # Another type of fractal:
-            #xconj = x.conjugate()
-            #x = xconj * xconj + z
-
-            # And yet another type of fractal:
-            #x = x*x*x + z
-
-            # And so on... :)
-            #x = x*x*x*x*x*x + z
-
+            #z = MandelbrotGenerator.__mandelbrotFunction(z, c)
+            # LoveBrot:
+            z = MandelbrotGenerator.__simpleLovebrotFunction(z, c)
             iteration = iteration + 1
         return iteration
 
