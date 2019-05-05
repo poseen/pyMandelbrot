@@ -18,7 +18,7 @@ class MandelbrotGenerator:
         self.__intImageHeight = intImageWidth
         self.__strOutputFileName = strOutputFileName
         self.__intRadius = intRadius
-        self.__maxIteration = 20
+        self.__maxIteration = 80
 
     # -- Public functions and methods --------------------------------------------
     def generateOutput(self):
